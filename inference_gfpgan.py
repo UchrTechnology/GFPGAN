@@ -153,7 +153,8 @@ def main():
 
     # determine model paths
     model_path = os.path.join(
-        "/persistent-storage/GFPGAN/experiments/pretrained_models", model_name + ".pth"
+        "/app/iei-seisaku-pipe-v2/GFPGAN/experiments/pretrained_models",
+        model_name + ".pth",
     )
     if not os.path.isfile(model_path):
         model_path = os.path.join("gfpgan/weights", model_name + ".pth")
