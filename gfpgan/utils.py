@@ -100,7 +100,7 @@ class GFPGANer:
             save_ext="png",
             use_parse=True,
             device=self.device,
-            model_rootpath="/app/iei-seisaku-pipe-v2/GFPGAN/gfpgan/weights",
+            model_rootpath="/app/iei-seisaku-pipe-v3/GFPGAN/gfpgan/weights",
         )
 
         if model_path.startswith("https://"):

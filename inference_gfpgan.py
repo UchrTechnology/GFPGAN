@@ -153,7 +153,7 @@ def main():
 
     # determine model paths
     model_path = os.path.join(
-        "/app/iei-seisaku-pipe-v2/GFPGAN/experiments/pretrained_models",
+        "/app/iei-seisaku-pipe-v3/GFPGAN/experiments/pretrained_models",
         model_name + ".pth",
     )
     if not os.path.isfile(model_path):
