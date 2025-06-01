@@ -72,6 +72,7 @@ def main():
     parser.add_argument(
         "-w", "--weight", type=float, default=0.5, help="Adjustable weights."
     )
+    parser.add_argument('--mymodel_name', type=str, default=None, help='mymodel name (without .pth)')
     args = parser.parse_args()
 
     args = parser.parse_args()
@@ -154,7 +155,7 @@ def main():
     # determine model paths
     model_path = os.path.join(
         "/app/iei-seisaku-pipe-v3/GFPGAN/experiments/pretrained_models",
-        model_name + ".pth",
+        args.mymodel_name + ".pth",
     )
     if not os.path.isfile(model_path):
         model_path = os.path.join("gfpgan/weights", model_name + ".pth")
