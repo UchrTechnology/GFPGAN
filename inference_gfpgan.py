@@ -72,7 +72,8 @@ def main():
     parser.add_argument(
         "-w", "--weight", type=float, default=0.5, help="Adjustable weights."
     )
-    parser.add_argument('--mymodel_name', type=str, default=None, help='mymodel name (without .pth)')
+    parser.add_argument('--mygfpgan_path', type=str, default=None, help='GFPGAN path')
+    parser.add_argument('--myrealesrgan_path', type=str, default=None, help='RealESRGAN path')
     args = parser.parse_args()
 
     args = parser.parse_args()
@@ -111,7 +112,7 @@ def main():
             )
             bg_upsampler = RealESRGANer(
                 scale=2,
-                model_path="/app/iei-seisaku-pipe-v3/GFPGAN/gfpgan/weights/RealESRGAN_x2plus.pth",
+                model_path=args.myrealesrgan_path,
                 model=model,
                 tile=args.bg_tile,
                 tile_pad=10,
@@ -153,10 +154,7 @@ def main():
         raise ValueError(f"Wrong model version {args.version}.")
 
     # determine model paths
-    model_path = os.path.join(
-        "/app/iei-seisaku-pipe-v3/GFPGAN/experiments/pretrained_models",
-        args.mymodel_name + ".pth",
-    )
+    model_path = args.mygfpgan_path
     if not os.path.isfile(model_path):
         model_path = os.path.join("gfpgan/weights", model_name + ".pth")
     if not os.path.isfile(model_path):
